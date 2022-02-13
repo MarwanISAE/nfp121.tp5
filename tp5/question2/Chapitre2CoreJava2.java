@@ -12,12 +12,13 @@ public class Chapitre2CoreJava2 {
      * 
      **/
     public static List<String> listeDesMots() {
-        List<String> liste = null; // à  compléter
+        List<String> liste = null;
 
         StringTokenizer st = new StringTokenizer(Chapitre2CoreJava2.CHAPITRE2,
                 "[](){};, :.\n\"");
-        // à  compléter
-
+        while(st.hasMoreElements()){
+            liste.add(st.nextElement().toString());
+        }
         return liste;
     }
 
@@ -29,8 +30,20 @@ public class Chapitre2CoreJava2 {
      */
     public static Map<String, Integer> occurrencesDesMots(List<String> liste) {
         Map<String, Integer> table = null; // à  compléter
-        // à  compléter
-        // à  compléter
+        StringTokenizer st = new StringTokenizer(Chapitre2CoreJava2.CHAPITRE2,
+                "[](){};, :.\n\"");
+        while (st.hasMoreTokens())
+                {
+ 
+                        if (table.containsKey(st.nextToken()))
+                        {
+                            table.put(st.nextToken(), (table.get(st.nextToken()) + 1));
+                        }
+                        else
+                        {
+                            table.put(st.nextToken(), 1);
+                        }
+                }
         return table;
     }
 
